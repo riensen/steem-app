@@ -1,0 +1,478 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		05C606176E7037CF58019342 /* libPods-steem.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E1417205CD47A95CCCCDD34 /* libPods-steem.a */; };
+		A61616791D3D8A2F005C95EA /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61616781D3D8A2F005C95EA /* SwiftyJSON.swift */; };
+		A62D43671D305B8A00D440AF /* JsonParserArticleList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D43661D305B8A00D440AF /* JsonParserArticleList.swift */; };
+		A62D436B1D315BB100D440AF /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D436A1D315BB100D440AF /* ArticleTableViewCell.swift */; };
+		A65EFBC31D3A9D9100F791CA /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65EFBC21D3A9D9100F791CA /* ComposeViewController.swift */; };
+		A67FFB111D303FCC00B35F8A /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67FFB101D303FCC00B35F8A /* Article.swift */; };
+		A67FFB151D30450F00B35F8A /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67FFB141D30450F00B35F8A /* Comment.swift */; };
+		A67FFB171D30452D00B35F8A /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67FFB161D30452D00B35F8A /* Content.swift */; };
+		A67FFB191D304CB200B35F8A /* JsonFetchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67FFB181D304CB200B35F8A /* JsonFetchManager.swift */; };
+		A68AA94C1D301DA00081E64F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68AA94B1D301DA00081E64F /* AppDelegate.swift */; };
+		A68AA94E1D301DA00081E64F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68AA94D1D301DA00081E64F /* ViewController.swift */; };
+		A68AA9511D301DA00081E64F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A68AA94F1D301DA00081E64F /* Main.storyboard */; };
+		A68AA9531D301DA00081E64F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A68AA9521D301DA00081E64F /* Assets.xcassets */; };
+		A68AA9561D301DA00081E64F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A68AA9541D301DA00081E64F /* LaunchScreen.storyboard */; };
+		A6DEDB2C1D326FF5006EED74 /* ArticleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DEDB2B1D326FF5006EED74 /* ArticleDetailViewController.swift */; };
+		A6E5FC3C1D3C1E27007E3A30 /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E5FC3B1D3C1E27007E3A30 /* CommonCrypto.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		8E1417205CD47A95CCCCDD34 /* libPods-steem.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-steem.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A61616781D3D8A2F005C95EA /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		A62D43631D30505500D440AF /* Steem-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Steem-Bridging-Header.h"; sourceTree = "<group>"; };
+		A62D43661D305B8A00D440AF /* JsonParserArticleList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonParserArticleList.swift; sourceTree = "<group>"; };
+		A62D436A1D315BB100D440AF /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
+		A65EFBC21D3A9D9100F791CA /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
+		A67FFB101D303FCC00B35F8A /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		A67FFB141D30450F00B35F8A /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		A67FFB161D30452D00B35F8A /* Content.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
+		A67FFB181D304CB200B35F8A /* JsonFetchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonFetchManager.swift; sourceTree = "<group>"; };
+		A689A6061D3D773900002E0D /* SwiftBase58.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftBase58.framework; path = Carthage/Build/iOS/SwiftBase58.framework; sourceTree = "<group>"; };
+		A68AA9481D301DA00081E64F /* Steem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Steem.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A68AA94B1D301DA00081E64F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A68AA94D1D301DA00081E64F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A68AA9501D301DA00081E64F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A68AA9521D301DA00081E64F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A68AA9551D301DA00081E64F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A68AA9571D301DA00081E64F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A6DEDB2B1D326FF5006EED74 /* ArticleDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleDetailViewController.swift; sourceTree = "<group>"; };
+		A6E5FC381D3C1D4A007E3A30 /* iOS */ = {isa = PBXFileReference; lastKnownFileType = folder; name = iOS; path = Carthage/Build/iOS; sourceTree = "<group>"; };
+		A6E5FC3B1D3C1E27007E3A30 /* CommonCrypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CommonCrypto.framework; path = Carthage/Build/iOS/CommonCrypto.framework; sourceTree = "<group>"; };
+		B3FCE9AF680B07954EEBA0EB /* Pods-steem.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-steem.debug.xcconfig"; path = "Pods/Target Support Files/Pods-steem/Pods-steem.debug.xcconfig"; sourceTree = "<group>"; };
+		DE61E2B923C4A7E48DAFADE4 /* Pods-steem.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-steem.release.xcconfig"; path = "Pods/Target Support Files/Pods-steem/Pods-steem.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A68AA9451D301DA00081E64F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6E5FC3C1D3C1E27007E3A30 /* CommonCrypto.framework in Frameworks */,
+				05C606176E7037CF58019342 /* libPods-steem.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1CD81220B9B4A8CBA99BF2E9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B3FCE9AF680B07954EEBA0EB /* Pods-steem.debug.xcconfig */,
+				DE61E2B923C4A7E48DAFADE4 /* Pods-steem.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		4FB1C9B18CEE4012737DEF67 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A689A6061D3D773900002E0D /* SwiftBase58.framework */,
+				A6E5FC3B1D3C1E27007E3A30 /* CommonCrypto.framework */,
+				A6E5FC381D3C1D4A007E3A30 /* iOS */,
+				8E1417205CD47A95CCCCDD34 /* libPods-steem.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A62D43681D31487E00D440AF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A67FFB101D303FCC00B35F8A /* Article.swift */,
+				A67FFB141D30450F00B35F8A /* Comment.swift */,
+				A67FFB161D30452D00B35F8A /* Content.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A62D43691D31489D00D440AF /* JsonParser */ = {
+			isa = PBXGroup;
+			children = (
+				A62D43661D305B8A00D440AF /* JsonParserArticleList.swift */,
+			);
+			name = JsonParser;
+			sourceTree = "<group>";
+		};
+		A68AA93F1D301DA00081E64F = {
+			isa = PBXGroup;
+			children = (
+				A68AA94A1D301DA00081E64F /* steem */,
+				A68AA9491D301DA00081E64F /* Products */,
+				1CD81220B9B4A8CBA99BF2E9 /* Pods */,
+				4FB1C9B18CEE4012737DEF67 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A68AA9491D301DA00081E64F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A68AA9481D301DA00081E64F /* Steem.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A68AA94A1D301DA00081E64F /* steem */ = {
+			isa = PBXGroup;
+			children = (
+				A6DEDB2D1D327002006EED74 /* UI */,
+				A62D43691D31489D00D440AF /* JsonParser */,
+				A62D43681D31487E00D440AF /* Model */,
+				A68AA94B1D301DA00081E64F /* AppDelegate.swift */,
+				A68AA94F1D301DA00081E64F /* Main.storyboard */,
+				A68AA9521D301DA00081E64F /* Assets.xcassets */,
+				A68AA9541D301DA00081E64F /* LaunchScreen.storyboard */,
+				A68AA9571D301DA00081E64F /* Info.plist */,
+				A67FFB181D304CB200B35F8A /* JsonFetchManager.swift */,
+				A62D43631D30505500D440AF /* Steem-Bridging-Header.h */,
+				A61616781D3D8A2F005C95EA /* SwiftyJSON.swift */,
+			);
+			path = steem;
+			sourceTree = "<group>";
+		};
+		A6DEDB2D1D327002006EED74 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				A6DEDB2B1D326FF5006EED74 /* ArticleDetailViewController.swift */,
+				A65EFBC21D3A9D9100F791CA /* ComposeViewController.swift */,
+				A6DEDB2E1D32704D006EED74 /* ArticleTable */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		A6DEDB2E1D32704D006EED74 /* ArticleTable */ = {
+			isa = PBXGroup;
+			children = (
+				A62D436A1D315BB100D440AF /* ArticleTableViewCell.swift */,
+				A68AA94D1D301DA00081E64F /* ViewController.swift */,
+			);
+			name = ArticleTable;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A68AA9471D301DA00081E64F /* steem */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A68AA95A1D301DA00081E64F /* Build configuration list for PBXNativeTarget "steem" */;
+			buildPhases = (
+				D8FFDF43C94AFA62429CF33E /* [CP] Check Pods Manifest.lock */,
+				A68AA9441D301DA00081E64F /* Sources */,
+				A68AA9451D301DA00081E64F /* Frameworks */,
+				A68AA9461D301DA00081E64F /* Resources */,
+				CCC76EB6998C9F87495DF69F /* [CP] Embed Pods Frameworks */,
+				9851975C1572B036E9D353B1 /* [CP] Copy Pods Resources */,
+				A6E5FC3A1D3C1D7D007E3A30 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = steem;
+			productName = steem;
+			productReference = A68AA9481D301DA00081E64F /* Steem.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A68AA9401D301DA00081E64F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Florian Rhinow";
+				TargetAttributes = {
+					A68AA9471D301DA00081E64F = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = A68AA9431D301DA00081E64F /* Build configuration list for PBXProject "Steem" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A68AA93F1D301DA00081E64F;
+			productRefGroup = A68AA9491D301DA00081E64F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A68AA9471D301DA00081E64F /* steem */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A68AA9461D301DA00081E64F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A68AA9561D301DA00081E64F /* LaunchScreen.storyboard in Resources */,
+				A68AA9531D301DA00081E64F /* Assets.xcassets in Resources */,
+				A68AA9511D301DA00081E64F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9851975C1572B036E9D353B1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-steem/Pods-steem-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A6E5FC3A1D3C1D7D007E3A30 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/CommonCrypto.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		CCC76EB6998C9F87495DF69F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-steem/Pods-steem-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D8FFDF43C94AFA62429CF33E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A68AA9441D301DA00081E64F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A62D436B1D315BB100D440AF /* ArticleTableViewCell.swift in Sources */,
+				A67FFB151D30450F00B35F8A /* Comment.swift in Sources */,
+				A62D43671D305B8A00D440AF /* JsonParserArticleList.swift in Sources */,
+				A68AA94E1D301DA00081E64F /* ViewController.swift in Sources */,
+				A6DEDB2C1D326FF5006EED74 /* ArticleDetailViewController.swift in Sources */,
+				A68AA94C1D301DA00081E64F /* AppDelegate.swift in Sources */,
+				A65EFBC31D3A9D9100F791CA /* ComposeViewController.swift in Sources */,
+				A67FFB111D303FCC00B35F8A /* Article.swift in Sources */,
+				A67FFB191D304CB200B35F8A /* JsonFetchManager.swift in Sources */,
+				A67FFB171D30452D00B35F8A /* Content.swift in Sources */,
+				A61616791D3D8A2F005C95EA /* SwiftyJSON.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A68AA94F1D301DA00081E64F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A68AA9501D301DA00081E64F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A68AA9541D301DA00081E64F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A68AA9551D301DA00081E64F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A68AA9581D301DA00081E64F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A68AA9591D301DA00081E64F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A68AA95B1D301DA00081E64F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3FCE9AF680B07954EEBA0EB /* Pods-steem.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = steem/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = riensen.steem;
+				PRODUCT_NAME = Steem;
+				SWIFT_INCLUDE_PATHS = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/inkenkuhlmann/Projects/xcode/steem/steem/Steem-Bridging-Header.h";
+			};
+			name = Debug;
+		};
+		A68AA95C1D301DA00081E64F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE61E2B923C4A7E48DAFADE4 /* Pods-steem.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = steem/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = riensen.steem;
+				PRODUCT_NAME = Steem;
+				SWIFT_INCLUDE_PATHS = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/inkenkuhlmann/Projects/xcode/steem/steem/Steem-Bridging-Header.h";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A68AA9431D301DA00081E64F /* Build configuration list for PBXProject "Steem" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A68AA9581D301DA00081E64F /* Debug */,
+				A68AA9591D301DA00081E64F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A68AA95A1D301DA00081E64F /* Build configuration list for PBXNativeTarget "steem" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A68AA95B1D301DA00081E64F /* Debug */,
+				A68AA95C1D301DA00081E64F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A68AA9401D301DA00081E64F /* Project object */;
+}

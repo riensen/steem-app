@@ -38,16 +38,14 @@ profile
 *.moved-aside
 DerivedData
 extern/
-*.xcodeproj
 SwiftyJSON*
-*Bridging-Header*
 
 
 #CocoaPods
 Pods
-PodFile*
+Podfile.lock
 
 #Carthage
 Carthage/Build
 Carthage*
-Cartfile*
+Cartfile.resolved
