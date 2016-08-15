@@ -429,7 +429,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = riensen.steem;
 				PRODUCT_NAME = Steem;
 				SWIFT_INCLUDE_PATHS = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/inkenkuhlmann/Projects/xcode/steem/steem/Steem-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/steem/Steem-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -447,7 +447,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = riensen.steem;
 				PRODUCT_NAME = Steem;
 				SWIFT_INCLUDE_PATHS = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/inkenkuhlmann/Projects/xcode/steem/steem/Steem-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/steem/Steem-Bridging-Header.h";
 			};
 			name = Release;
 		};
