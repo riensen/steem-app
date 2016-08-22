@@ -20,7 +20,7 @@ class ViewController: UIViewController , UITableViewDelegate, UITableViewDataSou
     }
     
     func openConnection(){
-        let url = "wss://steemit.com/wstmp3";
+        let url = "wss://this.piston.rocks";
         self.ws = SRWebSocket(URL: NSURL(string: url));
         ws.delegate = self
         ws.open()
