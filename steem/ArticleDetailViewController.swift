@@ -1,9 +1,9 @@
 import UIKit
 
 
-extension NSDate {
-    private func getTimeSpanString() -> String {
-        let elapsedTime = NSDate().timeIntervalSinceDate(self);
+extension Date {
+    func getTimeSpanString() -> String {
+        let elapsedTime = Date().timeIntervalSince(self)
         let ti = NSInteger(elapsedTime)
         
         let seconds = ti % 60
@@ -55,7 +55,7 @@ class ArticleDetailViewController: UIViewController {
     func load(){
         do {
             var htmlText : String;
-            try htmlText =   MMMarkdown.HTMLStringWithMarkdown(article.body, extensions: MMMarkdownExtensions.GitHubFlavored)
+            try htmlText =   MMMarkdown.htmlString(withMarkdown: article.body, extensions: MMMarkdownExtensions.gitHubFlavored)
             
             htmlText += "<style>body{font-family: 'Arial'; font-size:16px;}</style>"
             
@@ -64,13 +64,14 @@ class ArticleDetailViewController: UIViewController {
             let linkRegexStr = "(?<=href\\=\")[-a-zA-Z0-9@:%_\\+.~#?&//=;]*";
             let getLinksRegex = try NSRegularExpression(pattern: linkRegexStr, options: [])
             
-            let range = getLinkTagRegex.matchesInString(htmlText, options: [], range: NSMakeRange(0, htmlText.characters.count))
-            for linkTag in (range.map { (htmlText as NSString).substringWithRange($0.range)}) {
-                let range = getLinksRegex.matchesInString(linkTag, options: [], range: NSMakeRange(0, linkTag.characters.count))
-                for rawLink in (range.map { (linkTag as NSString).substringWithRange($0.range)}) {
-                    let link = rawLink.lowercaseString
-                    if link.rangeOfString("jpg") != nil || link.rangeOfString("jpeg") != nil || link.rangeOfString("png") != nil || link.rangeOfString("gif") != nil || link.rangeOfString("img") != nil {
-                         htmlText = htmlText.stringByReplacingOccurrencesOfString(linkTag, withString: "<img src=\"\(rawLink.unescapeUrl())\" width=\"\(self.view.bounds.width)\" />")
+            let range = getLinkTagRegex.matches(in: htmlText, options: [], range: NSMakeRange(0, htmlText.characters.count))
+            for linkTag in (range.map { (htmlText as NSString).substring(with: $0.range)}) {
+                let range = getLinksRegex.matches(in: linkTag, options: [], range: NSMakeRange(0, linkTag.characters.count))
+                for rawLink in (range.map { (linkTag as NSString).substring(with: $0.range)}) {
+                    let link = rawLink.lowercased() as NSString
+                    
+                    if link.range(of: "jpg") != nil || link.range(of: "jpeg") != nil || link.range(of: "png") != nil || link.range(of: "gif") != nil || link.range(of: "img") != nil {
+                         htmlText = (htmlText as NSString).replacingOccurrences(of: linkTag, with: "<img src=\"\(rawLink.unescapeUrl())\" width=\"\(self.view.bounds.width)\" />")
                     }
                 }
             }
@@ -87,14 +88,14 @@ class ArticleDetailViewController: UIViewController {
             
             
             
-            let htmlTextData = htmlText.dataUsingEncoding(NSUnicodeStringEncoding)!
-            let options : [String : AnyObject] = [NSDocumentTypeDocumentAttribute : NSHTMLTextDocumentType]
+            let htmlTextData = htmlText.data(using: String.Encoding.unicode)!
+            let options : [String : AnyObject] = [NSDocumentTypeDocumentAttribute : NSHTMLTextDocumentType as AnyObject]
             var attrText : NSAttributedString!;
             try  attrText =  NSAttributedString(data: htmlTextData, options: options, documentAttributes: nil);
             
             
             let myText = NSMutableAttributedString(attributedString : attrText);
-            myText.enumerateAttribute(NSAttachmentAttributeName, inRange: NSRange(location: 0, length: myText.length), options: []) { (attribute, range, stop) -> Void in
+            myText.enumerateAttribute(NSAttachmentAttributeName, in: NSRange(location: 0, length: myText.length), options: []) { (attribute, range, stop) -> Void in
                 if let attachment = attribute as? NSTextAttachment {
                     let ratio = attachment.bounds.height/attachment.bounds.width
                     let newWidth = self.view.bounds.width-40
@@ -102,7 +103,7 @@ class ArticleDetailViewController: UIViewController {
                     attachment.bounds = CGRect(x: 0, y: 0, width: newWidth, height: newHeight)
                     
                     let paragraphStyle = NSMutableParagraphStyle()
-                    paragraphStyle.alignment = .Left
+                    paragraphStyle.alignment = .left
                     myText.addAttribute(NSParagraphStyleAttributeName, value: paragraphStyle, range: range)
                 }
             }

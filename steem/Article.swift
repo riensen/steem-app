@@ -1,10 +1,10 @@
 import Foundation
 import UIKit
 
-extension String{
+extension String {
     
     func unescapeUrl() -> String {
-        var newString : String = self
+        var newString: String = self
         let char_dictionary = [
             "&amp;": "&",
             "&lt;": "<",
@@ -13,14 +13,16 @@ extension String{
             "&apos;": "'"
         ];
         for (escaped_char, unescaped_char) in char_dictionary {
-            newString = newString.stringByReplacingOccurrencesOfString(escaped_char, withString: unescaped_char)
+            newString = (newString as NSString).replacingOccurrences(of: escaped_char, with: unescaped_char)
         }
-        newString = newString.stringByReplacingOccurrencesOfString("amp;", withString: "")
+        newString = (newString as NSString).replacingOccurrences(of: "amp;", with: "")
         return newString
     }
     
 }
-class Article: Content{
+
+
+class Article: Content {
     let title: String;
     let imageUrlList: [String];
     private var isImageMap: [String:Bool] = [:];
@@ -29,7 +31,7 @@ class Article: Content{
     let commentSize: Int;
     var eventNotification : () -> Void = {};
     
-    init(id: String, title: String, author: String, body: String, creationDate: NSDate, commentSize: Int, upvoteSize:Int, downvoteSize: Int, dollar: Double, imageUrlList: [String]) {
+    init(id: String, title: String, author: String, body: String, creationDate: Date, commentSize: Int, upvoteSize:Int, downvoteSize: Int, dollar: Double, imageUrlList: [String]) {
         self.commentSize = commentSize;
         self.title = title;
         var tmpImageUrlList : [String] = []
@@ -62,9 +64,9 @@ class Article: Content{
     
     func getFirstImage() -> UIImage? {
         for url in imageUrlList {
-            if let usable = isImage(url) {
+            if let usable = isImage(url: url) {
                 if usable {
-                     return getImage(url)!
+                     return getImage(url: url)!
                 }
             } else {
                 return nil
@@ -75,30 +77,28 @@ class Article: Content{
     
     func loadImages(){
         for url in imageUrlList{
-            guard let  myUrl = NSURL(string: url) else {
+            guard let myUrl = URL(string: url) else {
                 self.isImageMap[url] = false
-                if self.isImageMap.count == self.imageUrlList.count{
+                if self.isImageMap.count == self.imageUrlList.count {
                     self.eventNotification()
                 }
                 continue
             }
-            let request = NSURLRequest(URL: myUrl)
-            let session = NSURLSession.sharedSession()
-            let task = session.dataTaskWithRequest(request) { (data, response, error) -> Void in
-                if let imageData = data as NSData?   {
-                    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
-                        dispatch_async(dispatch_get_main_queue()) {
-                            if let myImg = UIImage(data: imageData){
-                                self.imageMap[url] = myImg
-                                self.isImageMap[url] = true
-                                if self.getFirstImage() == myImg {
-                                    self.eventNotification()
-                                }
-                            } else {
-                                self.isImageMap[url] = false
-                                if self.isImageMap.count == self.imageUrlList.count{
-                                    self.eventNotification()
-                                }
+            let request = URLRequest(url: myUrl)
+            let session = URLSession.shared
+            let task = session.dataTask(with: request) { (data, response, error) -> Void in
+                if let imageData = data as Data? {
+                    DispatchQueue.global().async {
+                        if let myImg = UIImage(data: imageData){
+                            self.imageMap[url] = myImg
+                            self.isImageMap[url] = true
+                            if self.getFirstImage() == myImg {
+                                self.eventNotification()
+                            }
+                        } else {
+                            self.isImageMap[url] = false
+                            if self.isImageMap.count == self.imageUrlList.count{
+                                self.eventNotification()
                             }
                         }
                     }
@@ -109,38 +109,36 @@ class Article: Content{
     }
     
     
-    func loadImageWithIdx(index :Int){
+    func loadImageWithIdx(index: Int){
         if index >= imageUrlList.count {
             return
         }
         let url = imageUrlList[index]
-        guard let  myUrl = NSURL(string: url) else {
+        guard let myUrl = URL(string: url) else {
             self.isImageMap[url] = false
-            self.loadImageWithIdx(index+1)
-            if self.isImageMap.count == self.imageUrlList.count{
+            self.loadImageWithIdx(index: index+1)
+            if self.isImageMap.count == self.imageUrlList.count {
                 self.eventNotification()
             }
             return
         }
-        let request = NSURLRequest(URL: myUrl)
-        let session = NSURLSession.sharedSession()
-        let task = session.dataTaskWithRequest(request) { (data, response, error) -> Void in
-            if let imageData = data as NSData?   {
-                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
-                    dispatch_async(dispatch_get_main_queue()) {
-                        if let myImg = UIImage(data: imageData){
-                            self.imageMap[url] = myImg
-                            self.isImageMap[url] = true
-                            if self.getFirstImage() == myImg {
-                                self.eventNotification()
-                            }
-                        } else {
-                            self.isImageMap[url] = false
-                            self.loadImageWithIdx(index+1)
-                        }
-                        if self.isImageMap.count == self.imageUrlList.count{
+        let request = URLRequest(url: myUrl)
+        let session = URLSession.shared
+        let task = session.dataTask(with: request) { (data, response, error) -> Void in
+            if let imageData = data as Data? {
+                DispatchQueue.global().async {
+                    if let myImg = UIImage(data: imageData){
+                        self.imageMap[url] = myImg
+                        self.isImageMap[url] = true
+                        if self.getFirstImage() == myImg {
                             self.eventNotification()
                         }
+                    } else {
+                        self.isImageMap[url] = false
+                        self.loadImageWithIdx(index: index+1)
+                    }
+                    if self.isImageMap.count == self.imageUrlList.count{
+                        self.eventNotification()
                     }
                 }
             }
@@ -173,6 +171,6 @@ class Article: Content{
     
     
     func loadFirstImage(){
-        loadImageWithIdx(0)
+        loadImageWithIdx(index: 0)
     }
 }

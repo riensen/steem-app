@@ -2,14 +2,13 @@ import Foundation
 
 
 class Content : NSObject {
-    let id, author, body: String;
-    let upvoteSize, downvoteSize: Int;
-    let dollar: Double;
-    let creationDate: NSDate;
-
-    var children: [Comment] = [];
+    let id, author, body: String
+    let upvoteSize, downvoteSize: Int
+    let dollar: Double
+    let creationDate: Date
+    var children: [Comment] = []
     
-    init(id: String, author: String, body: String, creationDate: NSDate, upvoteSize: Int, downvoteSize: Int, dollar: Double) {
+    init(id: String, author: String, body: String, creationDate: Date, upvoteSize: Int, downvoteSize: Int, dollar: Double) {
         self.id = id;
         self.author = author;
         self.body = body;
@@ -21,7 +20,7 @@ class Content : NSObject {
     }
     
     
-     override  var  description: String {
+     override var description: String {
         get {
             return "\(id)"
         }

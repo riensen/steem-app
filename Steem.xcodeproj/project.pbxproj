@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		05C606176E7037CF58019342 /* libPods-steem.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E1417205CD47A95CCCCDD34 /* libPods-steem.a */; };
-		A61616791D3D8A2F005C95EA /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61616781D3D8A2F005C95EA /* SwiftyJSON.swift */; };
+		4F8CFB491DFF119B00DD5433 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8CFB481DFF119B00DD5433 /* SwiftyJSON.swift */; };
 		A62D43671D305B8A00D440AF /* JsonParserArticleList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D43661D305B8A00D440AF /* JsonParserArticleList.swift */; };
 		A62D436B1D315BB100D440AF /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D436A1D315BB100D440AF /* ArticleTableViewCell.swift */; };
 		A65EFBC31D3A9D9100F791CA /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65EFBC21D3A9D9100F791CA /* ComposeViewController.swift */; };
@@ -26,8 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F8CFB481DFF119B00DD5433 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		8E1417205CD47A95CCCCDD34 /* libPods-steem.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-steem.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A61616781D3D8A2F005C95EA /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		A62D43631D30505500D440AF /* Steem-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Steem-Bridging-Header.h"; sourceTree = "<group>"; };
 		A62D43661D305B8A00D440AF /* JsonParserArticleList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonParserArticleList.swift; sourceTree = "<group>"; };
 		A62D436A1D315BB100D440AF /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
@@ -133,7 +133,7 @@
 				A68AA9571D301DA00081E64F /* Info.plist */,
 				A67FFB181D304CB200B35F8A /* JsonFetchManager.swift */,
 				A62D43631D30505500D440AF /* Steem-Bridging-Header.h */,
-				A61616781D3D8A2F005C95EA /* SwiftyJSON.swift */,
+				4F8CFB481DFF119B00DD5433 /* SwiftyJSON.swift */,
 			);
 			path = steem;
 			sourceTree = "<group>";
@@ -188,7 +188,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Florian Rhinow";
 				TargetAttributes = {
 					A68AA9471D301DA00081E64F = {
@@ -284,7 +284,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -297,6 +297,7 @@
 				A62D436B1D315BB100D440AF /* ArticleTableViewCell.swift in Sources */,
 				A67FFB151D30450F00B35F8A /* Comment.swift in Sources */,
 				A62D43671D305B8A00D440AF /* JsonParserArticleList.swift in Sources */,
+				4F8CFB491DFF119B00DD5433 /* SwiftyJSON.swift in Sources */,
 				A68AA94E1D301DA00081E64F /* ViewController.swift in Sources */,
 				A6DEDB2C1D326FF5006EED74 /* ArticleDetailViewController.swift in Sources */,
 				A68AA94C1D301DA00081E64F /* AppDelegate.swift in Sources */,
@@ -304,7 +305,6 @@
 				A67FFB111D303FCC00B35F8A /* Article.swift in Sources */,
 				A67FFB191D304CB200B35F8A /* JsonFetchManager.swift in Sources */,
 				A67FFB171D30452D00B35F8A /* Content.swift in Sources */,
-				A61616791D3D8A2F005C95EA /* SwiftyJSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,8 +344,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -390,8 +392,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -410,6 +414,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -430,6 +435,7 @@
 				PRODUCT_NAME = Steem;
 				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/steem/Steem-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -448,6 +454,7 @@
 				PRODUCT_NAME = Steem;
 				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/steem/Steem-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
