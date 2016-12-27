@@ -1,19 +1,17 @@
 import Foundation
 
-extension NSDate
-{
-    static func makeDate(dateString: String) -> NSDate {
-        let dateStringFormatter = NSDateFormatter()
+extension Date {
+    static func makeDate(dateString: String) -> Date {
+        let dateStringFormatter = DateFormatter()
         dateStringFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ" //"2016-07-08T07:29:45"
-        dateStringFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
-        return dateStringFormatter.dateFromString(dateString)!
+        dateStringFormatter.locale = Locale(identifier: "en_US_POSIX")
+        return dateStringFormatter.date(from: dateString)!
     }
-    
-
 }
 
-class JsonParserArticleList{
-    static func makeArticleJSON(json: JSON) -> [Article]{
+class JsonParserArticleList {
+    
+    static func makeArticleJSON(json: JSON) -> [Article] {
         var result: [Article] = []
         var articleDict: [String: Article] = [:]
         let articleList =  json["result"]["content"];
@@ -22,13 +20,13 @@ class JsonParserArticleList{
             let title = article["title"].string!
             let dollarStr = article["pending_payout_value"].string!
             let dollar = Double(String(dollarStr.characters.dropLast(4)))!
-            let date = NSDate.makeDate(article["created"].string!+"UTC")
+            let date = Date.makeDate(dateString: article["created"].string!+"UTC")
             let voteAr = article["active_votes"].arrayValue
 
-            var downvoteSize = 0;
-            var upvoteSize  = 0;
+            var downvoteSize = 0
+            var upvoteSize  = 0
             for vote in voteAr{
-                if vote["percent"].int > 0 {
+                if vote["percent"].int! > 0 {
                     upvoteSize += 1;
                 } else {
                     downvoteSize += 1;
@@ -64,8 +62,8 @@ class JsonParserArticleList{
                 let regexUrl = try NSRegularExpression(pattern: regexUrlStr, options: [])
                 let nsString = body as NSString
                 var urlList :[String] = []
-                let range = regexUrl.matchesInString(body, options: [], range: NSMakeRange(0, nsString.length))
-                for url in (range.map { nsString.substringWithRange($0.range)}) {
+                let range = regexUrl.matches(in: body, options: [], range: NSMakeRange(0, nsString.length))
+                for url in (range.map { nsString.substring(with: $0.range)}) {
                    urlList.append(url)
                 }
                 
@@ -87,7 +85,7 @@ class JsonParserArticleList{
         }
         
         var rankingJson : [String] = []
-        let (_, rankMethodAr) : (String, JSON) =  json["result"]["discussion_idx"].first!;
+        let (_, rankMethodAr) : (String, JSON) = json["result"]["discussion_idx"].first!;
         for (_,rankMethod) in rankMethodAr {
             if let method = rankMethod.arrayObject as? [String] {
                 if method.count > 0 {

@@ -15,23 +15,21 @@ class JsonFetchManager : UIViewController, SRWebSocketDelegate {
 //    }
 //    
     
-    func webSocket(webSocket: SRWebSocket!, didReceiveMessage message: AnyObject!) {
-        let msg = JSON.parse(message as! String);
-        print("received: " + msg.rawString()! );
+    public func webSocket(_ webSocket: SRWebSocket!, didReceiveMessage message: Any!) {
+        let msg = JSON(parseJson: message as! String)
+        print("received: " + msg.rawString()! )
         
         guard let num3 = msg["result"].arrayValue[0]["average_bandwidth"].int else {
             print(3)
-            return;
+            return
         }
         print(num3)
     }
     
-     func webSocketDidOpen(webSocket: SRWebSocket!) {
+    
+     func webSocketDidOpen(_ webSocket: SRWebSocket!) {
         print("open");
         //"{\"id\": 3, \"method\": \"call\", \"params\": [0, \"get_accounts\", [[\"ned\"]]]}"
         webSocket.send("{\"id\": 8, \"method\": \"call\", \"params\": [0, \"get_state\", [\"/hot/steemit\"]]}")
     }
-    
-
-    
 }

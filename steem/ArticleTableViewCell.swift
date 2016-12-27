@@ -1,46 +1,5 @@
 import UIKit
 
-extension NSDate {
-    private func getTimeSpanString() -> String {
-        let elapsedTime = NSDate().timeIntervalSinceDate(self);
-        let ti = NSInteger(elapsedTime)
-        
-        let seconds = ti % 60
-        let minutes = (ti / 60) % 60
-        let hours = (ti / 3600)
-        let days = (hours / 24)
-        
-        if days > 0 {
-            if days == 1 {
-                return String(days) + " day ago";
-            }
-            return String(days) + " days ago";
-        }
-        
-        if hours > 0 {
-            if hours == 1 {
-                return String(hours) + " hour ago";
-            }
-            return String(hours) + " hours ago";
-        }
-        
-        if minutes > 0 {
-            if minutes == 1 {
-                return String(minutes) + " minute ago";
-            }
-            return String(minutes) + " minutes ago";
-        }
-        
-        if seconds == 1 {
-            return String(seconds) + " second ago";
-        }
-        return String(seconds) + " seconds ago";
-    }
-}
-
-
-
-
 class ArticleTableViewCell: UITableViewCell {
     
     @IBOutlet var titleLabel: UILabel!
@@ -50,12 +9,12 @@ class ArticleTableViewCell: UITableViewCell {
     @IBOutlet var steemLabel: UILabel!
     @IBOutlet var articleImage: UIImageView!
 
-    func setArticle(article : Article){
+    func setArticle(article: Article) {
         self.titleLabel.text = article.title
-        self.authorTimeLabel.text = "\(article.author) · \(article.creationDate.getTimeSpanString())";
+        self.authorTimeLabel.text = "\(article.author) · \(article.creationDate.getTimeSpanString())"
         self.commentsLabel.text = "\(String(article.commentSize)) Comments"
         self.voteLabel.text = "\(String(article.upvoteSize - article.downvoteSize)) Upvotes"
-        self.steemLabel.text = "\(String(Int(article.dollar))) Steem";
+        self.steemLabel.text = "\(String(Int(article.dollar))) Steem"
     }
     
     override func awakeFromNib() {
@@ -63,22 +22,22 @@ class ArticleTableViewCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
     
-    func imageFromUrl(url: NSURL, _ reloadMethod: () -> Void){
+    func imageFromUrl(url: URL, _ reloadMethod: @escaping () -> Void){
         if self.imageView?.image != nil {
-            return;
+            return
         }
-        let request = NSURLRequest(URL: url)
-        let session = NSURLSession.sharedSession()
-        let task = session.dataTaskWithRequest(request) { (data, response, error) -> Void in
-            if let imageData = data as NSData?   {
-                self.articleImage.image = UIImage(data: imageData);
-                reloadMethod();
+        let request = URLRequest(url: url)
+        let session = URLSession.shared
+        let task = session.dataTask(with: request) { (data, response, error) -> Void in
+            if let imageData = data as Data?   {
+                self.articleImage.image = UIImage(data: imageData)
+                reloadMethod()
             }
         }
         task.resume()
